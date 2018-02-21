@@ -1,1 +1,1 @@
-angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies']);
+angular.module('Orbital', ['ui.bootstrap', 'ui.router', 'ngCookies']);

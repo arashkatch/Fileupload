@@ -4,7 +4,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('Orbital')
     .directive('rdLoading', rdLoading);
 
 function rdLoading() {
