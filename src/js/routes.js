@@ -11,17 +11,14 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
 
         // Application routes
         $stateProvider
-            .state('index', {
+            .state('upload', {
                 url: '/',
-                templateUrl: 'templates/search.html'
+                templateUrl: 'templates/upload.html'
             })
-            // .state('index', {
-            //     url: '/',
-            //     templateUrl: 'templates/dashboard.html'
-            // })
-            // .state('tables', {
-            //     url: '/tables',
-            //     templateUrl: 'templates/tables.html'
-            // });
+             .state('search', {
+                 url: '/search',
+                 templateUrl: 'templates/search.html'
+             })
+           
     }
 ]);
