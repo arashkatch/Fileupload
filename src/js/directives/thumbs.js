@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 
 angular
@@ -16,7 +16,7 @@ angular
     * @author: nerv
     * @version: 0.1.2, 2014-01-09
     */
-    /*.directive('ngThumb', ['$window', function($window) {
+    .directive('ngThumb', ['$window', function($window) {
         var helper = {
             support: !!($window.FileReader && $window.CanvasRenderingContext2D),
             isFile: function(item) {
@@ -59,4 +59,4 @@ angular
                 }
             }
         };
-    }]);*/
+    }]);
