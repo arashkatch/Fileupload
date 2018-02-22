@@ -20,9 +20,22 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         searchText: "",
     };
 
-    $scope.login = function () {
+    $scope.train = function () {
+        //get group id
+        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+        //$http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
+        //    .then(function (response) {
+        //        $scope.details = response;
+        //        console.log("success");
+        //        console.log(response);
+
+        //    }).catch(function (e) {
+        //        console.log("error");
+        //    });
+
+        //list of people
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
+        $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
             .then(function (response) {
                 $scope.details = response;
                 console.log("success");
@@ -32,6 +45,17 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
                 console.log("error");
             });
 
+        // face ids didn't w
+        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+        //$http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/group")
+        //    .then(function (response) {
+        //        $scope.details = response;
+        //        console.log("success");
+        //        console.log(response);
+
+        //    }).catch(function (e) {
+        //        console.log("error");
+        //    });
             //var pics = [
             //    {
             //        url: "img/camera.png"
@@ -44,7 +68,26 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
             //    }
             // ];
             // $scope.pictures = pics;
-            console.log($scope.details );
-     };
+           
+    };
+    $scope.detectAndIdentify = function () {
+        // detect faces ids 
+        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+        $http.defaults.headers.common["Content-Type"] = "application/json";
+        $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false",
+            {
+                "url": "https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/identification2.jpg"
+            }
+            )
+            .success(function (response) {
+                $scope.details = response;
+                console.log("success");
+                console.log(response);
+
+            }).error(function (e) {
+                console.log("error");
+            });
+    };
+
 }]);
 
