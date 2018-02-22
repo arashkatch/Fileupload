@@ -13,11 +13,13 @@ angular.module('Orbital').config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('upload', {
                 url: '/',
-                templateUrl: 'templates/upload.html'
+                templateUrl: 'templates/upload.html',
+                controller: 'UploadController'
             })
             .state('add', {
                 url: '/add',
-                templateUrl: 'templates/add.html'
+                templateUrl: 'templates/traine.html',
+                controller: 'TrainController'
             })
              .state('search', {
                  url: '/search',
