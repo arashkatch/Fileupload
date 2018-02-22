@@ -76,17 +76,49 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         $http.defaults.headers.common["Content-Type"] = "application/json";
         $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false",
             {
-                "url": "https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/identification2.jpg"
+                "url": "https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/identification1.jpg"
             }
             )
             .success(function (response) {
                 $scope.details = response;
                 console.log("success");
                 console.log(response);
+                var data =  response;
+
+
+                // identify each face
+                data.forEach(function (face) {
+
+                    console.log(face.faceId);
+                    $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify",
+                        {
+                            "personGroupId": "orbital_hackathon",
+                            "faceIds": [
+                                face.faceId,
+
+                            ],
+                            "maxNumOfCandidatesReturned": 1,
+                            "confidenceThreshold": 0.5
+                        }
+                    )
+                        .success(function (response) {
+                            $scope.details = response;
+                            console.log("success");
+                            console.log(response);
+
+                        }).error(function (e) {
+                            console.log("error");
+                        });
+                });
 
             }).error(function (e) {
                 console.log("error");
             });
+
+      //  });
+       
+           
+
     };
 
 }]);
