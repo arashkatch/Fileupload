@@ -19,7 +19,7 @@ angular.module('Orbital').config(['$stateProvider', '$urlRouterProvider',
             .state('add', {
                 url: '/add',
                 templateUrl: 'templates/traine.html',
-                controller: 'TrainController'
+                controller: 'TraineController'
             })
              .state('search', {
                  url: '/search',

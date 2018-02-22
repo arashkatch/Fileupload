@@ -1,12 +1,19 @@
+
+
 <form class="m-t" role="form" action="#">
-    <!--<div class="form-group">
+    <div class="form-group">
         <input type="text" class="form-control" placeholder="Search text here ..." data-ng-model="loginData.searchText" autofocus required="">
-    </div>-->
+    </div>
 
-    <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="train()">Train</button>
+    <div class="col-sm-2 text-center">
 
-    <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Detect</button>
-    <!--<div ng-repeat="pic in pictures">
-        <img src="{{pic.url}}" />
-    </div>-->
+        <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Search</button>
+        <!--<div ng-repeat="pic in pictures">
+            <img src="{{pic.url}}" />
+        </div>-->
+    </div>
+    <div class="full-width text-center">
+        <img src="/img/search.gif" />
+    </div>
+
 </form>
