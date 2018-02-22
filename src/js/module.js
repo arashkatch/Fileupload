@@ -1,1 +1,3 @@
-angular.module('Orbital', ['ui.bootstrap', 'ui.router', 'ngCookies']);
+var app=angular.module('Orbital', ['ui.bootstrap', 'ui.router', 'ngCookies']);
+
+

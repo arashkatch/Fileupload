@@ -1,1 +1,10 @@
-<greeter [name]="name"></greeter>
+<form class="m-t" role="form" action="#">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search text here ..." data-ng-model="loginData.searchText" autofocus required="">
+    </div>
+
+    <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="login()">Search</button>
+    <!--<div ng-repeat="pic in pictures">
+        <img src="{{pic.url}}" />
+    </div>-->
+</form>

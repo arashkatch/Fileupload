@@ -21,7 +21,8 @@ angular.module('Orbital').config(['$stateProvider', '$urlRouterProvider',
             })
              .state('search', {
                  url: '/search',
-                 templateUrl: 'templates/search.html'
+                 templateUrl: 'templates/search.html',
+                 controller: 'SearchController'
              })
            
     }
