@@ -139,9 +139,16 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
     };
 
     function init() {
+
+        $scope.files = getFiles("/data");
+        console.log($scope.files);
         //console.log("init");
         //$scope.searchText = "dd ";
         //console.log($scope.searchText);
+    }
+
+    function getFiles(dir) {
+        $scope.allPictures = [{ name :"detection1.jpg", name: "detection2.jpg", name:  "detection3.jpg", name: "detection4.jpg",name: "detection5.jpg"}];
     }
 
 }]);
