@@ -118,6 +118,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
                     $scope.persons.push({ 'name': e.name, 'personId': e.personId });
                 });
                 $scope.gridOptions.data = $scope.persons;
+                console.log($scope.gridOptions.data);
 
             }).catch(function(e) {
                 console.log("error");

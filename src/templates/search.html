@@ -8,8 +8,11 @@
     <div class="col-sm-2 text-center">
         <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="searchObjects()">Vision</button>
         <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Faces</button>
-        <div ng-repeat="pic in pictures">
-            <img src="http://10.211.70.102:5001/images/{{pic}}" class="img-thumbnail"  />
+        <div ng-repeat="pic in pictures" ng-hide="showFaces">
+            <img src="http://10.211.70.102:5001/images/{{pic}}" class="img-thumbnail" />
+        </div>
+        <div ng-repeat="pic in pictures" ng-show="showFaces">
+            <img src="{{pic}}" class="img-thumbnail" />
         </div>
     </div>
     <div class="full-width text-center">
