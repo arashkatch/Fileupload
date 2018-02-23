@@ -21,10 +21,13 @@
                 </div>
             </div>
         </div>
-     </div>
-
-        <div class="full-width text-center">
-            <img src="/img/train.gif" />
-        </div>
-
     </div>
+    <div ng-repeat="pic in trainedpictures" >
+        <img src="{{pic}}" class="img-thumbnail" />
+    </div>
+
+    <div class="full-width text-center">
+        <img src="/img/train.gif" />
+    </div>
+
+</div>

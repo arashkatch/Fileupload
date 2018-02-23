@@ -16,9 +16,19 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
         ],
         data: $scope.persons
     };
+    $scope.trainedpictures = [];
+
     $scope.load = function ()
     {
         init();
+        $scope.allTrainedPictures.forEach(function (pic) {
+            console.log("https://raw.githubusercontent.com/arashkatch/fileupload/fileupload/src/" +"data/PersonGroup/"+ pic.name);
+           
+            $scope.trainedpictures.push("https://raw.githubusercontent.com/arashkatch/fileupload/fileupload/src/" + "data/PersonGroup/" + pic.name);
+        });
+        console.log("trainedpictures");
+        console.log($scope.trainedpictures);
+
     }
 
     $scope.add = function () {
@@ -109,6 +119,8 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
 
     function init() {
 
+        $scope.files = getFiles("/data/PersonGroup");
+
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
         $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
             .then(function(response) {
@@ -123,6 +135,12 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
             }).catch(function(e) {
                 console.log("error");
             });
+    }
+
+
+    function getFiles(dir) {
+        $scope.allTrainedPictures = [{ name: "Family1-Dad1.jpg" }, { name: "Family1-Dad2.jpg" }, { name: "Family1-Dad3.jpg" }, { name: "Family1-Daughter1.jpg" }, { name: "Family1-Daughter2.jpg" }, { name: "Family1-Daughter3.jpg" }, { name: "Family1-Mom1.jpg" }, { name: "Family1-Mom2.jpg" }, { name: "Family1-Mom3.jpg" }, { name: "Family1-Son1.jpg" }, { name: "Family1-Son2.jpg" }, { name: "Family1-Son3.jpg" }];
+        console.log($scope.allTrainedPictures);
     }
 
 }]);
