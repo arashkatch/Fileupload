@@ -2,15 +2,15 @@
 
 <form class="m-t" role="form" action="#">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search text here ..." data-ng-model="loginData.searchText" autofocus required="">
+        <input type="text" class="form-control" placeholder="Search text here ..." ng-model="searchText" >
     </div>
 
     <div class="col-sm-2 text-center">
-
-        <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Search</button>
-        <!--<div ng-repeat="pic in pictures">
-            <img src="{{pic.url}}" />
-        </div>-->
+        <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="searchObjects()">Vision</button>
+        <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Faces</button>
+        <div ng-repeat="pic in pictures">
+            <img src="http://10.211.70.102:5001/images/{{pic}}" class="img-thumbnail"  />
+        </div>
     </div>
     <div class="full-width text-center">
         <img src="/img/search.gif" />

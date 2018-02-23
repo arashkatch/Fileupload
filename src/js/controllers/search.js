@@ -16,9 +16,8 @@
 
 angular.module('Orbital').controller('SearchController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.loginData = {
-        searchText: "",
-    };
+
+    init();
 
     $scope.train = function () {
         //get group id
@@ -70,6 +69,24 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
             // $scope.pictures = pics;
            
     };
+    $scope.searchObjects = function() {
+        // detect faces ids 
+        console.log("search");
+        console.log($scope.searchText);
+        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+        $http.get("http://10.211.70.102:5001/api/images/tag=" + $scope.searchText)
+            .then(function(response) {
+                console.log(response.data);
+                $scope.pictures = response.data;
+                
+
+            }).catch(function(e) {
+                console.log("error");
+            });
+
+
+
+    };
     $scope.detectAndIdentify = function () {
         // detect faces ids 
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
@@ -120,6 +137,12 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
            
 
     };
+
+    function init() {
+        //console.log("init");
+        //$scope.searchText = "dd ";
+        //console.log($scope.searchText);
+    }
 
 }]);
 

@@ -12,7 +12,7 @@ angular.module('Orbital').config(['$stateProvider', '$urlRouterProvider',
         // Application routes
         $stateProvider
             .state('upload', {
-                url: '/',
+                url: '/upload',
                 templateUrl: 'templates/upload.html',
                 controller: 'UploadController'
             })
@@ -22,7 +22,7 @@ angular.module('Orbital').config(['$stateProvider', '$urlRouterProvider',
                 controller: 'TraineController'
             })
              .state('search', {
-                 url: '/search',
+                 url: '/',
                  templateUrl: 'templates/search.html',
                  controller: 'SearchController'
              })
