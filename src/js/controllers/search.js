@@ -71,6 +71,8 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
     };
     $scope.searchObjects = function() {
         // detect faces ids 
+        $scope.pictures = [];
+        $scope.showFaces = false;
         console.log("search");
         console.log($scope.searchText);
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
@@ -91,7 +93,7 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         $scope.showFaces = true;
 
         // detect faces ids 
-        $scope.pictures = [];
+        $scope.facePictures = [];
         console.log($scope.allPictures);
 
         if ($scope.searchText != "any") {
@@ -141,8 +143,8 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
                                     if (face.candidates.length > 0) {
                                         console.log("success inside if statement");
                                         console.log($scope.pictures);
-                                        if ($scope.pictures.indexOf("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name) == -1) {
-                                            $scope.pictures.push("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name);
+                                        if ($scope.facePictures.indexOf("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name) == -1) {
+                                            $scope.facePictures.push("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name);
                                         }
 
                                     }
@@ -167,7 +169,7 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
             $scope.allPictures.forEach(function (pic) {
                 console.log("not ");
                 console.log($scope.searchText);
-                $scope.pictures.push("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name);
+                $scope.facePictures.push("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name);
             });
         }
 
