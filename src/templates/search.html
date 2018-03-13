@@ -9,7 +9,7 @@
         <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="searchObjects()">Vision</button>
         <button type="submit" class="btn btn-primary block full-width m-b" data-ng-click="detectAndIdentify()">Faces</button>
         <div ng-repeat="pic in pictures" ng-hide="showFaces">
-            <img src="http://10.211.70.102:5001/images/{{pic}}" class="img-thumbnail" />
+            <img src="http://localhost:55556/images/{{pic}}" class="img-thumbnail" />
         </div>
         <div ng-repeat="pic in facePictures" ng-show="showFaces">
             <img src="{{pic}}" class="img-thumbnail" />

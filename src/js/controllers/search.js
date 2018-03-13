@@ -76,7 +76,7 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         console.log("search");
         console.log($scope.searchText);
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.get("http://10.211.70.102:5001/api/images/tag=" + $scope.searchText)
+        $http.get("http://localhost:55556/api/images/tag=" + $scope.searchText)
             .then(function(response) {
                 console.log(response.data);
                 $scope.pictures = response.data;
