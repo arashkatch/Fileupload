@@ -21,8 +21,8 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
 
     $scope.train = function () {
         //get group id
-        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        //$http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
+        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "a3029ae7457d415da33f194f7bb13ed2";
+        //$http.get("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
         //    .then(function (response) {
         //        $scope.details = response;
         //        console.log("success");
@@ -33,8 +33,8 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         //    });
 
         //list of people
-        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
+        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "a3029ae7457d415da33f194f7bb13ed2";
+        $http.get("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
             .then(function (response) {
                 $scope.details = response;
                 console.log("success");
@@ -45,8 +45,8 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
             });
 
         // face ids didn't w
-        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        //$http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/group")
+        //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "a3029ae7457d415da33f194f7bb13ed2";
+        //$http.post("https://westus2.api.cognitive.microsoft.com/face/v1.0/group")
         //    .then(function (response) {
         //        $scope.details = response;
         //        console.log("success");
@@ -75,7 +75,7 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
         $scope.showFaces = false;
         console.log("search");
         console.log($scope.searchText);
-        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+        $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "a3029ae7457d415da33f194f7bb13ed2";
         $http.get("http://localhost:55556/api/images/tag=" + $scope.searchText)
             .then(function(response) {
                 console.log(response.data);
@@ -102,9 +102,9 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
 
                 console.log("https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name);
 
-                $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
+                $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "a3029ae7457d415da33f194f7bb13ed2";
                 $http.defaults.headers.common["Content-Type"] = "application/json";
-                $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false",
+                $http.post("https://westus2.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false",
                     {
                         "url": "https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/" + pic.name
                     }
@@ -126,8 +126,9 @@ angular.module('Orbital').controller('SearchController', ['$scope', '$http', fun
                         //data.forEach(function (face) {
 
                         console.log(detectedFaces);
-                        $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify",
+                        $http.post("https://westus2.api.cognitive.microsoft.com/face/v1.0/identify",
                             {
+                                //"personGroupId": "orbital_hackathon",
                                 "personGroupId": "orbital_hackathon",
                                 "faceIds": detectedFaces,
                                 "maxNumOfCandidatesReturned": 1,

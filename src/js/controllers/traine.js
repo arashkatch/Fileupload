@@ -50,7 +50,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
         //get group id
 
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/Arash/persons",
+        $http.post("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/Arash/persons",
             {
                 "name": "Person1",
                 "userData": "User-provided data attached to the person"
@@ -69,7 +69,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
     $scope.train = function () {
         //get group id
         //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        //$http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
+        //$http.get("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon")
         //    .then(function (response) {
         //        $scope.details = response;
         //        console.log("success");
@@ -81,7 +81,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
 
         //list of people
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
+        $http.get("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
             .then(function (response) {
                 $scope.details = response;
                 console.log("success");
@@ -93,7 +93,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
 
         // face ids didn't w
         //$http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        //$http.post("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/group")
+        //$http.post("https://westus2.api.cognitive.microsoft.com/face/v1.0/group")
         //    .then(function (response) {
         //        $scope.details = response;
         //        console.log("success");
@@ -122,7 +122,7 @@ angular.module('Orbital').controller('TraineController', ['$scope', '$http', fun
         $scope.files = getFiles("/data/PersonGroup");
 
         $http.defaults.headers.common["Ocp-Apim-Subscription-Key"] = "e3884919baa54cd6ab7d16ac3f9fbf15";
-        $http.get("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
+        $http.get("https://westus2.api.cognitive.microsoft.com/face/v1.0/persongroups/orbital_hackathon/persons?top=1000")
             .then(function(response) {
                 $scope.details = response;
                 $scope.persons = [];
